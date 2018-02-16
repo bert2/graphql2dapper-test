@@ -1,7 +1,5 @@
 ﻿namespace Example
 {
-    using System.Linq;
-
     using Models;
 
     public static class ExampleSeed
@@ -20,15 +18,16 @@
         };
 
         private static readonly Person[] Persons = {
-            new Person {FirstName = "", LastName = "", Address = new Address {Street = "12 Foo Ln", City = Cities[0]}},
-            new Person {FirstName = "", LastName = "", Address = new Address {Street = "463 Qux Blvd", City = Cities[2]}}
+            new Person {FirstName = "Foo", LastName = "Barnsted", Address = new Address {Street = "12 Foo Ln", City = Cities[0]}},
+            new Person {FirstName = "Bazz", LastName = "Quxdecker", Address = new Address {Street = "463 Qux Blvd", City = Cities[2]}}
         };
 
         public static void Seed(this ExampleContext db)
         {
-            Countries.Select(db.Add);
-            Cities.Select(db.Add);
-            Persons.Select(db.Add);
+            foreach (var c in Countries) db.Add(c);
+            foreach (var c in Cities) db.Add(c);
+            foreach (var p in Persons) db.Add(p);
+            db.SaveChanges();
         }
     }
 }

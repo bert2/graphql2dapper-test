@@ -14,9 +14,7 @@
 
         public DbSet<Country> Countries { get; set; }
 
-        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
-        {
-            optionsBuilder.UseSqlite("Data Source=example.db");
-        }
+        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder) 
+            => optionsBuilder.UseSqlite("Data Source=example.db");
     }
 }

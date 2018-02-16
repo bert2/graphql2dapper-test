@@ -2,8 +2,6 @@
 {
     using System;
 
-    using Microsoft.EntityFrameworkCore;
-
     public static class Program
     {
         public static void Main(string[] args)
