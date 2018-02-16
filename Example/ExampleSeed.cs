@@ -11,10 +11,10 @@
         };
 
         private static readonly City[] Cities = {
-            new City {Name = "Footown", ZipCode = 0, Country = Countries[0]},
-            new City {Name = "Barcity", ZipCode = 0, Country = Countries[0]},
-            new City {Name = "Bazzville", ZipCode = 0, Country = Countries[1]},
-            new City {Name = "Quxpolis", ZipCode = 0, Country = Countries[1]}
+            new City {Name = "Footown", ZipCode = 12345, Country = Countries[0]},
+            new City {Name = "Barcity", ZipCode = 09876, Country = Countries[0]},
+            new City {Name = "Bazzville", ZipCode = 54321, Country = Countries[1]},
+            new City {Name = "Quxpolis", ZipCode = 67890, Country = Countries[1]}
         };
 
         private static readonly Person[] Persons = {

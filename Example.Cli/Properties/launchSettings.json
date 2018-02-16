@@ -1,0 +1,8 @@
+{
+  "profiles": {
+    "Example.Cli": {
+      "commandName": "Project",
+      "commandLineArgs": "get Person"
+    }
+  }
+}
