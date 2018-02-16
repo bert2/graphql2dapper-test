@@ -6,6 +6,10 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="example.db" />
+  </ItemGroup>
+
+  <ItemGroup>
     <ProjectReference Include="..\Example\Example.csproj" />
   </ItemGroup>
 
