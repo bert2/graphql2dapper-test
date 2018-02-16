@@ -5,8 +5,6 @@ VisualStudioVersion = 15.0.27130.2027
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Dapper.GraphQL.Reflect", "Dapper.GraphQL.Reflect\Dapper.GraphQL.Reflect.csproj", "{680F8F30-71C8-45A8-AFB0-9AF7FF93C8FF}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ExampleProgram", "ExampleProgram\ExampleProgram.csproj", "{FC981E1B-D60B-4A2D-89DF-5DE7576407F2}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Example", "Example\Example.csproj", "{3E8C1F76-F5DE-4591-B30D-2A2E0CE9CF51}"
 EndProject
 Global
@@ -19,10 +17,6 @@ Global
 		{680F8F30-71C8-45A8-AFB0-9AF7FF93C8FF}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{680F8F30-71C8-45A8-AFB0-9AF7FF93C8FF}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{680F8F30-71C8-45A8-AFB0-9AF7FF93C8FF}.Release|Any CPU.Build.0 = Release|Any CPU
-		{FC981E1B-D60B-4A2D-89DF-5DE7576407F2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{FC981E1B-D60B-4A2D-89DF-5DE7576407F2}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{FC981E1B-D60B-4A2D-89DF-5DE7576407F2}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{FC981E1B-D60B-4A2D-89DF-5DE7576407F2}.Release|Any CPU.Build.0 = Release|Any CPU
 		{3E8C1F76-F5DE-4591-B30D-2A2E0CE9CF51}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{3E8C1F76-F5DE-4591-B30D-2A2E0CE9CF51}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{3E8C1F76-F5DE-4591-B30D-2A2E0CE9CF51}.Release|Any CPU.ActiveCfg = Release|Any CPU

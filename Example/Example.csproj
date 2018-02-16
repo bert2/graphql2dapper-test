@@ -8,8 +8,4 @@
     <PackageReference Include="Dapper.GraphQL" Version="0.1.0" />
   </ItemGroup>
 
-  <ItemGroup>
-    <Folder Include="Models\" />
-  </ItemGroup>
-
 </Project>
