@@ -1,4 +1,4 @@
-﻿namespace Example.Models
+﻿namespace Example.Model
 {
     public class Address
     {

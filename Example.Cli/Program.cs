@@ -4,9 +4,15 @@
     using System.Collections.Generic;
     using System.Linq;
 
+    using GraphQL;
+    using GraphQL.Http;
+    using GraphQL.Types;
+
     using Microsoft.EntityFrameworkCore;
 
     using Newtonsoft.Json;
+
+    using Schema;
 
     public static class Program
     {
@@ -40,7 +46,6 @@
         private static void InitDb()
         {
             using (var db = new ExampleContext()) {
-                db.Database.EnsureDeleted();
                 db.Database.EnsureCreated();
                 db.Seed();
             }
@@ -51,8 +56,9 @@
             if (args.Count < 1) throw new ArgumentException("Missing verb.");
 
             switch (args[0].ToLower()) {
-                case "get": return ExecuteGet(args);
-                default:    throw new ArgumentException($"Unknown verb '{args[0]}'.");
+                case "get":   return ExecuteGet(args);
+                case "query": return ExecuteQuery(args);
+                default:      throw new ArgumentException($"Unknown verb '{args[0]}'.");
             }
         }
 
@@ -75,6 +81,20 @@
                 case "person":  return db.Persons.Include(x => x.Address).ThenInclude(x => x.City).ThenInclude(x => x.Country).ToArray();
                 default: throw new ArgumentException($"Unknown table '{table}'.");
             }
+        }
+
+        private static string ExecuteQuery(IReadOnlyList<string> args)
+        {
+            if (args.Count < 2) throw new ArgumentException("Missing GraphQL query.");
+
+            var result = new DocumentExecuter().ExecuteAsync(opts => {
+                opts.Query = args[1];
+                opts.Schema = new Schema {
+                    ResolveType = t => (IGraphType)Activator.CreateInstance(t),
+                    Query = new QueryType()
+                };
+            }).Result;
+            return new DocumentWriter(true).Write(result);
         }
     }
 }

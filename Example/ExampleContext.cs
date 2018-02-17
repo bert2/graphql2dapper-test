@@ -2,7 +2,7 @@
 {
     using Microsoft.EntityFrameworkCore;
 
-    using Models;
+    using Model;
 
     public class ExampleContext : DbContext
     {
@@ -15,6 +15,8 @@
         public DbSet<Country> Countries { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder) 
-            => optionsBuilder.UseSqlite("Data Source=example.db");
+            => optionsBuilder
+                .UseSqlite("Data Source=example.db")
+                .EnableSensitiveDataLogging();
     }
 }
