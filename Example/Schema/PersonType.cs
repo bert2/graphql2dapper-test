@@ -11,6 +11,7 @@
             Field(x => x.Id);
             Field(x => x.FirstName);
             Field(x => x.LastName);
+            Field(x => x.Address, type: typeof(AddressType));
         }
     }
 }
