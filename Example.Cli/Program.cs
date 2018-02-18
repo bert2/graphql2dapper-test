@@ -4,15 +4,9 @@
     using System.Collections.Generic;
     using System.Linq;
 
-    using GraphQL;
-    using GraphQL.Http;
-    using GraphQL.Types;
-
     using Microsoft.EntityFrameworkCore;
 
     using Newtonsoft.Json;
-
-    using Schema;
 
     public static class Program
     {
@@ -87,14 +81,7 @@
         {
             if (args.Count < 2) throw new ArgumentException("Missing GraphQL query.");
 
-            var result = new DocumentExecuter().ExecuteAsync(opts => {
-                opts.Query = args[1];
-                opts.Schema = new Schema {
-                    ResolveType = t => (IGraphType)Activator.CreateInstance(t),
-                    Query = new QueryType()
-                };
-            }).Result;
-            return new DocumentWriter(true).Write(result);
+            return Execute.Query(args[1]);
         }
     }
 }
