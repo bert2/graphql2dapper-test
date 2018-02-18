@@ -26,11 +26,10 @@
                         query.Select($"{alias}.ZipCode"); 
                         break;
                     case "country":
-                        query.InnerJoin($"Country on {alias}.CountryId = Country.Id");
-                        query = new CountryQuery().Build(query, field.Value, "Country");
+                        var countryAlias = $"{alias}Country";
+                        query.InnerJoin($"Countries {countryAlias} on {alias}.CountryId = {countryAlias}.Id");
+                        query = new CountryQuery().Build(query, field.Value, countryAlias);
                         break;
-                    default: 
-                        throw new ArgumentOutOfRangeException($"Unable to map field '{field.Key}' to table '{alias}'.");
                 }
             }
 

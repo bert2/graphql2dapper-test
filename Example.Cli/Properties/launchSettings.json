@@ -2,7 +2,7 @@
   "profiles": {
     "Example.Cli": {
       "commandName": "Project",
-      "commandLineArgs": "query \"{ persons { firstName } }\""
+      "commandLineArgs": "query \"{persons {id,lastName,address{street,city{name,country{isoCode}}}}}\""
     }
   }
 }

@@ -2,7 +2,13 @@
 {
     using System.Linq;
 
+    using Dapper.GraphQL;
+
     using GraphQL.Types;
+
+    using Microsoft.Data.Sqlite;
+
+    using SqlQuery;
 
     public class QueryType : ObjectGraphType
     {
@@ -10,7 +16,15 @@
         {
             Field<ListGraphType<PersonType>>(
                 "persons", 
-                resolve: _ => ExampleSeed.Persons);
+                resolve: context => {
+                    const string alias = "person";
+                    var sqlQuery = SqlBuilder.From($"Persons {alias}");
+                    
+                    sqlQuery = new PersonQuery().Build(sqlQuery, context.FieldAst, alias);
+                    using (var db = new SqliteConnection("Data Source=example.db")) {
+                        return sqlQuery.Execute(db, new PersonMapper().Map);
+                    }
+                });
 
             Field<PersonType>(
                 "person", 

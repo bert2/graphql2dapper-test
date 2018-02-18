@@ -23,8 +23,6 @@
                     case "isocode": 
                         query.Select($"{alias}.IsoCode"); 
                         break;
-                    default:
-                        throw new ArgumentOutOfRangeException($"Unable to map field '{field.Key}' to table '{alias}'.");
                 }
             }
 

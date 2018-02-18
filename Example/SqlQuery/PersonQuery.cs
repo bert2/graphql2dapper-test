@@ -26,11 +26,10 @@
                         query.Select($"{alias}.LastName");
                         break;
                     case "address":
-                        query.InnerJoin($"Address on {alias}.AddressId = Address.Id");
-                        query = new AddressQuery().Build(query, field.Value, "Address");
+                        var addressAlias = $"{alias}Address";
+                        query.InnerJoin($"Addresses {addressAlias} on {alias}.AddressId = {addressAlias}.Id");
+                        query = new AddressQuery().Build(query, field.Value, addressAlias);
                         break;
-                    default:
-                        throw new ArgumentOutOfRangeException($"Unable to map field '{field.Key}' to table '{alias}'.");
                 }
             }
 

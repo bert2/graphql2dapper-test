@@ -23,11 +23,10 @@
                         query.Select($"{alias}.Street");
                         break;
                     case "city":
-                        query.InnerJoin($"City on {alias}.CityId = City.Id");
-                        query = new CityQuery().Build(query, field.Value, "City");
+                        var cityAlias = $"{alias}City";
+                        query.InnerJoin($"Cities {cityAlias} on {alias}.CityId = {cityAlias}.Id");
+                        query = new CityQuery().Build(query, field.Value, cityAlias);
                         break;
-                    default:
-                        throw new ArgumentOutOfRangeException($"Unable to map field '{field.Key}' to table '{alias}'.");
                 }
             }
 
