@@ -1,7 +1,6 @@
 ﻿namespace Example.SqlQuery
 {
     using System;
-    using System.Collections.Generic;
 
     using Dapper.GraphQL;
 
@@ -11,11 +10,11 @@
     {
         public Func<Person, Person> ResolveEntity { get; set; }
 
-        public Person Map(IEnumerable<object> objs)
+        public Person Map(EntityMapContext context)
         {
             Person person = null;
 
-            foreach (var obj in objs) {
+            foreach (var obj in context.Items) {
                 switch (obj) {
                     case Person p:
                         person = p;

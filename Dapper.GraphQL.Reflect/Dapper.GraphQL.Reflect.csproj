@@ -5,7 +5,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="Dapper.GraphQL" Version="0.1.0" />
+    <PackageReference Include="Dapper.GraphQL" Version="0.4.2-beta" />
   </ItemGroup>
 
 </Project>
