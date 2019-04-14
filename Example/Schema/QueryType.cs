@@ -22,7 +22,7 @@
                     
                     sqlQuery = new PersonQuery().Build(sqlQuery, context.FieldAst, alias);
                     using (var db = new SqliteConnection("Data Source=example.db")) {
-                        return sqlQuery.Execute(db, new PersonMapper().Map);
+                        return sqlQuery.Execute(db, context.FieldAst, new PersonMapper());
                     }
                 });
 

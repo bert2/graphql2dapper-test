@@ -10,12 +10,14 @@
 
     public static class Program
     {
-        private const string UsageMessage = 
-            "USAGE: dotnet run <get|query> <verb args>\n\n" 
-            + "\tget <table name>\n" 
-            + "\t\tPrints the contents of <table name>.\n\n" 
-            + "\tquery <graphql query>\n" 
-            + "\t\tExecutes <graphql query> and prints the result.\n";
+        private const string UsageMessage =
+            "USAGE: dotnet run <get|query> <verb args>\n\n"
+            + "\tget <table name>\n"
+            + "\t\tPrints the contents of <table name>.\n\n"
+            + "\tquery <graphql query>\n"
+            + "\t\tExecutes <graphql query> and prints the result.\n\n"
+            + "\tdotnet run get person\n\n"
+            + "\tdotnet run query \"{ persons { id firstName lastName address { street city { name country { name } } } } }\"\n\n";
 
         public static void Main(string[] args)
         {

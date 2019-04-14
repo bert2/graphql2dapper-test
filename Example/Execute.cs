@@ -1,10 +1,7 @@
 ﻿namespace Example
 {
-    using System;
-
     using GraphQL;
     using GraphQL.Http;
-    using GraphQL.Types;
 
     using Schema;
 
@@ -16,7 +13,6 @@
                 opts.Query = query;
                 opts.Schema = new GraphQL.Types.Schema
                 {
-                    ResolveType = t => (IGraphType)Activator.CreateInstance(t),
                     Query = new QueryType()
                 };
             }).Result;
